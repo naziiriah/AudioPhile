@@ -1,20 +1,17 @@
+import { Box } from "@chakra-ui/react"
 
-import { Container } from "@mui/material";
 import Home from "./Homepage";
-import ScrollToTop from "./ScrollToTop"
+
 
 
 function App() {
-  
-
- 
 
   return (
-    <ScrollToTop>
-      <Container maxWidth="sm">
-      <div> hello</div>
-      </Container>
-    </ScrollToTop>
+  <Box  width={"100%"} maxWidth={"100rem"} margin={"auto"}>
+    <Home/>
+  </Box>
+    
+  
   );
 }
 

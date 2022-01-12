@@ -1,14 +1,12 @@
-import React from "react"
-import { Paper } from "@mui/material/"
+
+import { Box} from "@mui/material/"
 
 const Header   = () => {
 return (
-    <Paper elevation={10}> 
-        into the netherRealm of progrmaaing
+    <Box component="header" sx={{
+        width:"-110%",margin:"auto" , height:"10rem", backgroundColor: "red" }}>
 
-    </Paper>
-)
-
-}
+    </Box>
+)}
 
 export default Header

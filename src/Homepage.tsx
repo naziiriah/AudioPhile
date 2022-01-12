@@ -1,13 +1,15 @@
 import { Box } from "@mui/material";
-import Header from "./components/Header";
+import HomeHeader from "./components/Home/home.Top.section";
+
 
 const Home = () => {
 
     return (
-        <>
-        <div> hello</div>
-        <Header/>
-        </>
+        <Box sx={{width:"100%"}}>
+         <HomeHeader/>
+
+        </Box>
+     
     )
 }
 

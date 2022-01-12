@@ -4,3 +4,13 @@
   box-sizing: border-box;
   font-family: "Roboto";
 }
+.header{
+  background-image: url("../src/store/assets/home/desktop/image-hero.jpg")
+  ;
+}
+@media screen and (max-width:1000px) {
+  .header{
+    background-image: url("../src/store/assets/home/mobile/image-header.jpg");
+    background-position: center;
+    
+}}
