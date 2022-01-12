@@ -7,7 +7,7 @@ import Home from "./Homepage";
 function App() {
 
   return (
-  <Box  width={"100%"} maxWidth={"100rem"} margin={"auto"}>
+  <Box width={"100%"} maxWidth={"100rem"} margin={"auto"}>
     <Home/>
   </Box>
     
