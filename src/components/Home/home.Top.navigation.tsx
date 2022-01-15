@@ -2,24 +2,25 @@ import { Box } from "@chakra-ui/react"
 
 
 
+
 const Navigation = () => {
 
     return(
         <Box as="nav" 
             paddingTop="2rem"
-            
             height="5rem"
             borderColor="#979797"
             borderBottomWidth="1px"
             borderBottomStyle="solid"
             width="80%" mx="10%"color={"#fff"}
             display="flex" justifyContent="space-between">
+
                 <Box as="h3" 
                      textTransform="lowercase"
                      fontWeight="600" color="#fff"
                      letterSpacing=".6px" fontSize="23px"
-                     _hover={{color:"D87D4A", cursor:"pointer"}}      
                 > audiophile</Box>
+
                 <Box as="ul" 
                     display="inline-flex" width="30rem"
                     justifyContent="space-between" listStyleType={"none"}>
@@ -49,7 +50,9 @@ const Navigation = () => {
 
                 </Box>
 
-
+                <Box as="p">
+                    cart
+                </Box>
         </Box>
       
     )

@@ -8,6 +8,11 @@
   background-image: url("../src/store/assets/home/desktop/image-hero.jpg")
   ;
 }
+.speak-bg{
+  background-image: url("../src/store/assets/home/desktop/image-speaker-zx7.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 @media screen and (max-width:1000px) {
   .header{
     background-image: url("../src/store/assets/home/mobile/image-header.jpg");

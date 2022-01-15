@@ -1,18 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Db from "../store/data.json"
+import DB from "../store/data.json"
 
 const initialState = {
-    value : Db
+    value :DB
 }
 
+const Cart = []
 
 export const GearsFile = createSlice({
     name: "gears",
     initialState,
     reducers: {
-     addToCart: () => {
-
-     }
+        addToCart: (state, {payload, type}) => {
+            const Newitem  = state.value.find(state => state.id === payload.id)
+            Cart.push(Newitem)
+        }
     }
 })
 
