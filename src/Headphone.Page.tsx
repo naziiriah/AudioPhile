@@ -3,6 +3,7 @@ import Header from "./components/innerPages/Header";
 import PageFooter from "../src/components/comps/Page.footer";
 import InfoSection from "../src/components/comps/Page.Aside";
 import SectionArea from "./components/innerPages/innerPage.Section";
+import PageNavigation from "./components/comps/Page.navigation";
 
 const Headphone = () => {
 
@@ -16,8 +17,11 @@ const Headphone = () => {
              letterSpacing={"2.5px"}>Headphones</Text>
         </Box>
         <Box as="main" width="100%">
-            <SectionArea Name = {"XX99 Mark II Headphones"} order={1}/>
+            <SectionArea Name = {"XX99 Mark II Headphones"} order={0}/>
+            <SectionArea Name = {"XX99 Mark I Headphones"} order={1}/>
+            <SectionArea Name={"XX59 Headphones"} order ={0}/>
         </Box>
+        <PageNavigation/>
         <InfoSection/>
         <PageFooter/>
         </>

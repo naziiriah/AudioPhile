@@ -5,6 +5,7 @@ import { BrowserRouter,Routes,Route } from "react-router-dom";
 import Headphone from "./Headphone.Page";
 import Earphone from "./Earphone.Page";
 import Speaker from "./Speaker.Page";
+import ProductPage from "./Product.Page";
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
           <Route path ="/headphones" element={<Headphone/>} />
           <Route path = "/earphones" element={<Earphone/>}/>
           <Route path = "/speakers" element={<Speaker/>}/>
-          <Route path = "/product/"/>
+          <Route path = "/:category/:slug" element={<ProductPage/>}/>
         </Routes>
       </Box>
 

@@ -2,6 +2,7 @@ import { Box, Text,Image } from "@chakra-ui/react"
 import image from "../../store/assets/shared/desktop/image-best-gear.jpg"
 
 const InfoSection = () => {
+   
 
     return(
         <Box as ="aside" order="revert" width={["100%","100%","90%","80%"]} 
