@@ -11,10 +11,17 @@ import {
   Text
 } from "@chakra-ui/react"
 import { FaCartPlus } from 'react-icons/fa'
+import { Cart } from "../../features/GearRoom"
+
 
 
 const BasicUsage = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
+     
+  
+
+    
+    
 
     return (
       <>
@@ -30,14 +37,14 @@ const BasicUsage = () => {
                         <ModalHeader display="flex" justifyContent="space-between">
                             <Text  as="h3"> cart </Text>
                             <Text _hover={{cursor:"pointer", color:"#D87D4A"}}
-                            onClick={() => { onClose() }}>Remove all</Text>
+                            onClick={() => { alert() }}>Remove all</Text>
 
                         </ModalHeader>
             
             
             <Box display="flex" justifyContent="space-between" width="90%" margin="auto">
-                <Box as="h1" textTransform="uppercase" fontSize="23px" fontWeight="600"> total</Box>
-                
+                <Box as="h1" textTransform="uppercase" fontSize="23px" fontWeight="600">{ Cart.length}</Box>
+                    
               </Box>
             <ModalFooter>
             </ModalFooter>

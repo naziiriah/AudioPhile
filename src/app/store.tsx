@@ -5,6 +5,7 @@ import  GearReducer  from "../features/GearRoom";
 export const store = configureStore({
     reducer : {
         gears : GearReducer,
+        
     }
 })
 

@@ -1,11 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import DB from "../store/data"
 
+
+export const Cart:any = []
+
+
 const initialState = {
-    value :DB
+    value :DB, 
+    
 }
 
-const Cart = []
+
 
 export const GearsFile = createSlice({
     name: "gears",
@@ -14,8 +19,18 @@ export const GearsFile = createSlice({
         addToCart: (state, {payload, type}) => {
             const Newitem  = state.value.find(state => state.id === payload.id)
             Cart.push(Newitem)
-        }
+        },
+        cartProduct : (state) => {
+            
+
+        }, 
+        RemoveCartProducts: (state, {payload, type}) => {
+           Cart.length >1 && Cart.filter((state: { id:number; }) => state.id !== payload.id)
+        },
+
     }
 })
+
+export const {addToCart, cartProduct, RemoveCartProducts} = GearsFile.actions
 
 export default GearsFile.reducer;

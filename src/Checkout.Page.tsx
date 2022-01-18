@@ -52,7 +52,7 @@ const Checkout = () => {
                         width="100%"> 
 
                                 <Box display="flex" 
-                                flexDirection={["column", "row", "row", "row"]}  
+                                flexDirection={["column", "column", "row", "row"]}  
                                 width="90%">
 
                                         <Box marginRight="1rem">
@@ -120,7 +120,7 @@ const Checkout = () => {
 
 
                                 <Box display="flex" 
-                                flexDirection={["column", "row", "row", "row"]}  
+                                flexDirection={["column", "column", "row", "row"]}  
                                 width="90%">
                                         <Box marginRight="1rem">
                                                 
@@ -173,27 +173,25 @@ const Checkout = () => {
                                 >payment method</Box>
                                 <Box height="10rem" width={["100%","100%", "48%", "48%"]}>
                                     <RadioGroup defaultValue='e-Money'>
-                                        <Box width="100%" height="3rem" my=".3rem" cursor="pointer" borderWidth="1px"  borderColor="#D87D4A" colorScheme="#D87D4A" borderRadius="10px" _active={{borderColor:'orange'}}>
-                                            <Radio  onClick={()=> SetValue(true)} size="lg"display="flex" justifyContent="flex-start" alignItems="center" my=".5rem" mx="1rem" colorScheme="orange">e-money</Radio>
+                                        <Box width="100%" height="3rem" my=".3rem"  cursor="pointer" borderWidth="1px"  borderColor="#D87D4A" colorScheme="#D87D4A" borderRadius="10px" _active={{borderColor:'orange'}}>
+                                            <Radio onClick={()=> SetValue(true)}  size="lg"display="flex" justifyContent="flex-start" alignItems="center" my=".5rem" mx="1rem" colorScheme="orange">e-money</Radio>
                                         </Box>
-                                        <Box width="100%" height="3rem" my="1rem" cursor="pointer" borderWidth="1px"  borderColor="#D87D4A" colorScheme="#D87D4A" borderRadius="10px" _active={{borderColor:'orange'}}>
-                                            <Radio  onClick={()=> SetValue(false)} size="lg"display="flex" justifyContent="flex-start" alignItems="center" my=".5rem" mx="1rem" colorScheme="black">cash on delivery</Radio>
+                                        <Box width="100%" height="3rem" my="1rem" onClick={()=> SetValue(false)} cursor="pointer" borderWidth="1px"  borderColor="#D87D4A" colorScheme="#D87D4A" borderRadius="10px" _active={{borderColor:'orange'}}>
+                                            <Radio onClick={()=> SetValue(false)}  size="lg"display="flex" justifyContent="flex-start" alignItems="center" my=".5rem" mx="1rem" colorScheme="black">cash on delivery</Radio>
                                         </Box>
+                                        
                                     </RadioGroup>
-
-
-                                    <Box as="input" ></Box>
                                 </Box>
                             </Box>
                             {
 /* { to display contents in accordance to type of payment to be made*/
                                 value ?
-                                 <Box display="flex" justifyContent="space-between" flexDirection={["column", "row", "row", "row"]} width="100%" height="7rem" marginTop="-9rem">
-                                    <Box width={["100%","48%", "48%", "48%"]} height="7rem">
+                                 <Box display="flex" justifyContent="space-between" flexDirection={["column", "column", "row", "row"]} width="100%" height="7rem" marginTop="-9rem">
+                                    <Box width={["100%","100%", "48%", "48%"]} height="7rem">
                                             <Box as ="label" fontWeight="550">e-money Number</Box>
                                             <Input placeholder='0000 1123 4567 0987' focusBorderColor='#D87D4A' size='lg' width="100%" my=".5rem" />
                                         </Box>
-                                        <Box width={["100%","48%", "48%", "48%"]} height="7rem">
+                                        <Box width={["100%","100%", "48%", "48%"]} height="7rem">
                                             <Box as ="label" fontWeight="550" >e-money Pin</Box>
                                             <Input placeholder='1234' focusBorderColor='#D87D4A' size='lg'width="100%" my=".5rem" />
                                         </Box>

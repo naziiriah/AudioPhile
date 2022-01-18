@@ -10,9 +10,11 @@ import MiniComponets from "./components/comps/MiniComponents.Products"
 import PageNavigation from "./components/comps/Page.navigation"
 import InfoSection from "./components/comps/Page.Aside"
 import PageFooter from "./components/comps/Page.footer"
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "./features/GearRoom"
 
 const ProductPage = () => {
+    
    const Location = useLocation()
    const AudioMaterials  = useSelector((state: RootState) => state.gears.value)
     const navigation = useNavigate()
@@ -20,7 +22,7 @@ const ProductPage = () => {
    const Product = typeof(Location.state) === "number" ? 
         AudioMaterials.find(products => products.id === Location.state) :
         AudioMaterials.find(products => products.slug === Location.state)
-
+        const Dispatch = useDispatch()
 
    const [Value, setValue] = useState(0)
    
@@ -104,7 +106,9 @@ const ProductPage = () => {
                                 <Button bgColor = "#D87D4A" mt="3rem" borderRadius="0" 
                                 textAlign = "center" textTransform="uppercase" letterSpacing="3px"
                                 width ="13rem" color = "#fff" _hover={{cursor:'pointer', opacity:'0.7'}}
-                                fontSize="16px" height="4rem" onClick={() => navigation(`/products/checkout`)}                        
+                                fontSize="16px" height="4rem" onClick={() => Dispatch(addToCart({
+                                    'id': Product?.id
+                                }))}                        
                                 >add to cart</Button>
                             </Box>
 
