@@ -1,5 +1,5 @@
 import { Box,Image, Icon, Button, Text } from "@chakra-ui/react"
-import { useLocation, useNavigate } from "react-router-dom"
+import {  useLocation, useNavigate } from "react-router-dom"
 import { RootState } from "./app/store"
 import { useSelector } from "react-redux"
 import Header from "./components/innerPages/Header"
@@ -7,13 +7,21 @@ import { IoMdAdd} from "react-icons/io"
 import { FaMinus } from "react-icons/fa";
 import { useState } from "react"
 import MiniComponets from "./components/comps/MiniComponents.Products"
+import PageNavigation from "./components/comps/Page.navigation"
+import InfoSection from "./components/comps/Page.Aside"
+import PageFooter from "./components/comps/Page.footer"
 
 
 const ProductPage = () => {
    const Location = useLocation()
    const AudioMaterials  = useSelector((state: RootState) => state.gears.value)
     const navigation = useNavigate()
-   const Product = AudioMaterials.find(products => products.id === Location.state)
+    
+   const Product = typeof(Location.state) === "number" ? 
+        AudioMaterials.find(products => products.id === Location.state) :
+        AudioMaterials.find(products => products.slug === Location.state)
+
+
    const [Value, setValue] = useState(0)
    
    function increment(){
@@ -26,12 +34,12 @@ const ProductPage = () => {
 
 
     return (
-        <>
-            <Box as ="header" bgColor={"#000"} 
+        <Box key={Product?.id}>
+            <Box as ="header"  bgColor={"#000"} 
             width="100%" height="4.8rem">
                 <Header/>
             </Box>
-            <Box as="main" width="100%">
+            <Box as="main" width="100%" >
 
                <Box as="h2"  fontSize="23px" fontWeight="600"
                 marginTop="6rem" marginLeft={["0%", "10%", "10%", "10%"]}
@@ -96,7 +104,7 @@ const ProductPage = () => {
                                 <Button bgColor = "#D87D4A" mt="3rem" borderRadius="0" 
                                 textAlign = "center" textTransform="uppercase" letterSpacing="3px"
                                 width ="13rem" color = "#fff" _hover={{cursor:'pointer', opacity:'0.7'}}
-                                fontSize="16px" height="4rem" onClick={() => alert(Value)}                        
+                                fontSize="16px" height="4rem" onClick={() => navigation(`/products/checkout`)}                        
                                 >add to cart</Button>
                             </Box>
 
@@ -142,7 +150,8 @@ const ProductPage = () => {
                 </Box>
 
                 {/* gallery pictures */} 
-                <Box as="section" width="80%" margin="auto"  marginTop="9rem" display="flex" flexDirection={["column", "row", "row", "row"]} justifyContent="space-between" >
+                <Box as="section" width="80%" margin="auto"  marginTop="9rem" display="flex" 
+                flexDirection={["column", "row", "row", "row"]} justifyContent="space-between" >
                         <Box width={["100%","48%","48%","48%"]}  marginBottom="3rem" height="40rem" >
                           <Box width="100%" height ="19rem">
                           <Image src ={Product?.gallery.first.desktop} alt="gallery-1" width="100%" height="100%"/>
@@ -166,13 +175,19 @@ const ProductPage = () => {
 
                 <Box as ="section" display=" flex" justifyContent="space-between" width={["100%","100%","80%","80%"]} flexDirection={["column", "column", "row", "row"]} margin="auto" marginBottom="10rem">
                       {Product?.others.map( others => (
-                        <MiniComponets/>
+                        <MiniComponets slug={others.slug} image={others.image.desktop}/>
                       ))}
               </Box>
+
+              <PageNavigation/>
+
+              <InfoSection/>
+
             </Box>
-            
-            
-        </>
+
+            <PageFooter/>
+
+        </Box>
     )
 }
 

@@ -20,9 +20,12 @@ const Headphone = () => {
             <SectionArea Name = {"XX99 Mark II Headphones"} order={0}/>
             <SectionArea Name = {"XX99 Mark I Headphones"} order={1}/>
             <SectionArea Name={"XX59 Headphones"} order ={0}/>
+
+            <PageNavigation/>
+            
+            <InfoSection/>
         </Box>
-        <PageNavigation/>
-        <InfoSection/>
+        
         <PageFooter/>
         </>
     )

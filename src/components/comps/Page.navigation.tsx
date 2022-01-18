@@ -3,6 +3,8 @@ import miniHeadphones from "../../store/assets/shared/desktop/image-category-thu
 import miniSpeakers from "../../store/assets/shared/desktop/image-category-thumbnail-speakers.png";
 import miniEarphone from "../../store/assets/shared/desktop/image-category-thumbnail-earphones.png";
 import { IoIosArrowForward } from 'react-icons/io';
+
+
 const PageNavigation = () => {
 
 

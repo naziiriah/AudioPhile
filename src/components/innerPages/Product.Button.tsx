@@ -13,10 +13,10 @@ const ProductPageButton = (props: Props) => {
     
     return(
         <Button 
-        textTransform={"uppercase"} my="2rem"
+        textTransform={"uppercase"} margin={"auto"} 
         borderColor={"#000"} borderWidth={"3px"} 
-        borderStyle={"solid"} color={"#000"}
-        onClick={() =>Navigate(`/products/${ props.category }/${props.slug}`, {state:props.slug}) }
+        borderStyle={"solid"} color={"#000"} my="2rem"
+        onClick={() =>Navigate(`/${ props.category }/${props.slug}`, {state:props.slug}) }
         >see product</Button>
     )
 

@@ -6,6 +6,7 @@ import Headphone from "./Headphone.Page";
 import Earphone from "./Earphone.Page";
 import Speaker from "./Speaker.Page";
 import ProductPage from "./Product.Page";
+import Checkout from "./Checkout.Page";
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
           <Route path = "/earphones" element={<Earphone/>}/>
           <Route path = "/speakers" element={<Speaker/>}/>
           <Route path = "/:category/:slug" element={<ProductPage/>}/>
+          <Route path = "/products/checkout" element={<Checkout/>}/>
+
         </Routes>
       </Box>
 
