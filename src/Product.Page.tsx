@@ -22,16 +22,27 @@ const ProductPage = () => {
    const Product = typeof(Location.state) === "number" ? 
         AudioMaterials.find(products => products.id === Location.state) :
         AudioMaterials.find(products => products.slug === Location.state)
-        const Dispatch = useDispatch()
+
+    const Dispatch = useDispatch()
 
    const [Value, setValue] = useState(0)
    
    function increment(){
+       //    for increasing the value on the product page
        return Value === 10 ? Value : setValue(Value + 1)
    }
 
    function decrement(){
+    //    for decreasing the value on the product page
        return Value === 0 ? Value : setValue(Value - 1)
+   }
+
+   function addValue(){
+    // to check if the value is greater than zer0 and then dispatch the addTo`cart fuctions   
+    Value > 0 && Dispatch(addToCart({
+                'id': Product?.id
+
+            }))
    }
 
 
@@ -106,9 +117,7 @@ const ProductPage = () => {
                                 <Button bgColor = "#D87D4A" mt="3rem" borderRadius="0" 
                                 textAlign = "center" textTransform="uppercase" letterSpacing="3px"
                                 width ="13rem" color = "#fff" _hover={{cursor:'pointer', opacity:'0.7'}}
-                                fontSize="16px" height="4rem" onClick={() => Dispatch(addToCart({
-                                    'id': Product?.id
-                                }))}                        
+                                fontSize="16px" height="4rem" onClick={() => addValue() }                        
                                 >add to cart</Button>
                             </Box>
 

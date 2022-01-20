@@ -18,7 +18,9 @@ export const GearsFile = createSlice({
     reducers: {
         addToCart: (state, {payload, type}) => {
             const Newitem  = state.value.find(state => state.id === payload.id)
-            Cart.push(Newitem)
+            Cart.find((state: { id: number; }) => state.id === payload.id) ? alert(2)
+            : Cart.push(Newitem)
+            
         },
         cartProduct : (state) => {
             
