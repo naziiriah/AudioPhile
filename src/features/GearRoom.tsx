@@ -4,6 +4,13 @@ import DB from "../store/data"
 
 export const Cart:any = []
 
+function checkCart(id:number){
+const existingItem =   Cart.filter((state: { id: number }) => state.id === id)
+
+console.log(existingItem)
+
+}
+
 
 const initialState = {
     value :DB, 
@@ -17,18 +24,19 @@ export const GearsFile = createSlice({
     initialState,
     reducers: {
         addToCart: (state, {payload, type}) => {
-            const Newitem  = state.value.find(state => state.id === payload.id)
-            Cart.find((state: { id: number; }) => state.id === payload.id) ? alert(2)
-            : Cart.push(Newitem)
-            
+            Cart.length === 0  ? Cart.push(state.value.find(state => state.id === payload.id)) : checkCart(payload.id)
+             
         },
         cartProduct : (state) => {
             
 
         }, 
         RemoveCartProducts: (state, {payload, type}) => {
-           Cart.length >1 && Cart.filter((state: { id:number; }) => state.id !== payload.id)
+           Cart.length >1 && Cart.filter((state: { id:number}) => state.id !== payload.id)
         },
+        UpdateCart : ( state, {payload, type} )=> {
+
+        }
 
     }
 })
