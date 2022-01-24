@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 import Header from "./components/innerPages/Header"
 import { IoMdAdd} from "react-icons/io"
 import { FaMinus } from "react-icons/fa";
-import { useState } from "react"
+import { ReactChild, ReactFragment, ReactPortal, useState } from "react"
 import MiniComponets from "./components/comps/MiniComponents.Products"
 import PageNavigation from "./components/comps/Page.navigation"
 import InfoSection from "./components/comps/Page.Aside"
@@ -17,11 +17,12 @@ const ProductPage = () => {
     
    const Location = useLocation()
    const AudioMaterials  = useSelector((state: RootState) => state.gears.value)
+//    const Cart  = useSelector((state: RootState) => state.gears.cart)
     const navigation = useNavigate()
     
    const Product = typeof(Location.state) === "number" ? 
-        AudioMaterials.find(products => products.id === Location.state) :
-        AudioMaterials.find(products => products.slug === Location.state)
+        AudioMaterials.find((products: { id: number }) => products.id === Location.state) :
+        AudioMaterials.find((products: { slug: string }) => products.slug === Location.state)
 
     const Dispatch = useDispatch()
 
@@ -37,11 +38,13 @@ const ProductPage = () => {
        return Value === 0 ? Value : setValue(Value - 1)
    }
 
+
    function addValue(){
     // to check if the value is greater than zer0 and then dispatch the addTo`cart fuctions   
-    Value > 0 && Dispatch(addToCart({
-                'id': Product?.id
-
+    Value > 0 && 
+     Dispatch(addToCart({
+                'id': Product?.id,
+                "value" : Value
             }))
    }
 
@@ -117,7 +120,7 @@ const ProductPage = () => {
                                 <Button bgColor = "#D87D4A" mt="3rem" borderRadius="0" 
                                 textAlign = "center" textTransform="uppercase" letterSpacing="3px"
                                 width ="13rem" color = "#fff" _hover={{cursor:'pointer', opacity:'0.7'}}
-                                fontSize="16px" height="4rem" onClick={() => addValue() }                        
+                                fontSize="16px" height="4rem" onClick={() =>  addValue()}                        
                                 >add to cart</Button>
                             </Box>
 
@@ -149,7 +152,7 @@ const ProductPage = () => {
                         <Box marginTop={["0rem", "0rem","0rem", "1.4rem"]} 
                         width={["50%", "50%", "50%", "80%"]} > 
 
-                            {Product?.includes.map(includes=> (
+                            {Product?.includes.map((includes: { quantity: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined; item: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined })=> (
                                 <Box display="flex" marginTop=".8rem" >
                                     <Box as="h3" marginRight="1.5rem" lineHeight="33px" fontSize="20px" 
                                     marginTop=".4rem" color="#D87D4A">{ includes.quantity }x</Box>
@@ -187,7 +190,7 @@ const ProductPage = () => {
                 </Text>
 
                 <Box as ="section" display=" flex" justifyContent="space-between" width={["100%","100%","80%","80%"]} flexDirection={["column", "column", "row", "row"]} margin="auto" marginBottom="10rem">
-                      {Product?.others.map( others => (
+                      {Product?.others.map( (others: { slug: string; image: { desktop: string } }) => (
                         <MiniComponets slug={others.slug} image={others.image.desktop}/>
                       ))}
               </Box>
