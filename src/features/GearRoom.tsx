@@ -96,7 +96,7 @@ export const GearsFile = createSlice({
         editCartAmount: (state, {payload}) => {
             // to edit the value or number of items that's  to be placed in the cart
             const existingItem = state.cart.find((state: { id: number; }) => state.id === payload.id)
-            existingItem.value = payload.value
+            existingItem.value = payload.value + 1
         }, 
         EmptyCart: (state) => {
             // to empty the cart

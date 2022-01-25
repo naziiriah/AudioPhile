@@ -8,10 +8,12 @@ import {
   useDisclosure, 
   Box,
   Icon,
-  Text
+  Text, 
+  Button
 } from "@chakra-ui/react"
 import { FaCartPlus } from 'react-icons/fa'
 import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { RootState } from "../../app/store"
 import { EmptyCart } from "../../features/GearRoom"
 import CartItems from "./Cart.Items"
@@ -76,6 +78,7 @@ import CartItems from "./Cart.Items"
 const BasicUsage = () => {
   
   const Dispatch = useDispatch()
+  const Navigation  = useNavigate()
 
     
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -106,7 +109,9 @@ const BasicUsage = () => {
                    Cart.map(
                      (state: CartProp ) => <CartItems id={state.id} value = {state.value} newItem = {state.newItem}/>)}
               </Box>
+
             <ModalFooter>
+              {Cart.length > 0 && <Button width="100%" onClick={() => Navigation("/products/checkout")}>Check Out</Button>}
             </ModalFooter>
           </ModalContent>
         </Modal>

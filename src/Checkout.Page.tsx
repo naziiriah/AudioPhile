@@ -1,12 +1,17 @@
-import { Box, Text, Icon,Input,RadioGroup,Radio } from "@chakra-ui/react"
+import { Box, Text, Icon,Input,RadioGroup,Radio, Image } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import Header from "./components/innerPages/Header"
 import { GiPayMoney } from 'react-icons/gi'
 import { useState } from "react"
+import { useSelector } from "react-redux"
+import { RootState } from "./app/store"
+import { CartProp } from "./components/comps/Page.Cart"
+
 
 
 const Checkout = () => {
 
+    const Cart  = useSelector((state:RootState) => state.gears.cart)
     const [value, SetValue] = useState(true)
     const navigation = useNavigate()
     return(
@@ -212,6 +217,31 @@ const Checkout = () => {
                     </Box>
                     
                     <Box as="section" width={["100%","100%", "100%","33%"]} height={"45rem"} bgColor="#fff" >
+                        <Text as="h2" my="2rem" mx="1rem" fontSize={"20px"} 
+                        textTransform={"uppercase"} fontWeight={"600"}>summary</Text>
+
+                        <Box width="92%"  mx="1rem">
+                            {
+                                Cart.map((state: CartProp)  => (
+                                    <Box height={"4rem"} my="1rem" width={"100%"} display={"flex"} justifyContent={"space-between"} >
+                                        <Box display={"flex"} >
+
+                                            <Image src={state.newItem.image.desktop} alt={state.newItem.slug} width={"3rem"} height={"3rem"}/>
+
+                                            <Box marginLeft={"1rem"}>
+                                                <Text as="h3">{state.newItem.slug}</Text>
+                                                <Text>${state.newItem.price}</Text>
+                                            </Box>
+
+                                        </Box>
+                                            
+
+                                        <Box width={"3rem"} textAlign={"center"}>x{state.value}</Box>
+                                    </Box>
+                                ) )
+                            }
+
+                        </Box>
 
                     </Box>
 
