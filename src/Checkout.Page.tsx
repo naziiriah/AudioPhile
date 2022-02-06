@@ -1,4 +1,4 @@
-import { Box, Text, Icon,Input,RadioGroup,Radio, Image } from "@chakra-ui/react"
+import { Box, Text, Icon,Input,RadioGroup,Radio, Image,Button } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import Header from "./components/innerPages/Header"
 import { GiPayMoney } from 'react-icons/gi'
@@ -234,13 +234,17 @@ const Checkout = () => {
                                             </Box>
 
                                         </Box>
-                                            
 
                                         <Box width={"3rem"} textAlign={"center"}>x{state.value}</Box>
                                     </Box>
                                 ) )
                             }
-
+                            
+                            <Button className="final-modal" 
+                            color={"#fff"} textTransform={"uppercase"}
+                            fontWeight={"bold"} fontSize={"25px"}
+                            bgColor={"#D87D4A"} onClick={() => alert("fine page")}> check out</Button>
+                            
                         </Box>
 
                     </Box>

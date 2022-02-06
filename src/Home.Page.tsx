@@ -20,6 +20,7 @@ const Home = () => {
                 {/* sections area of the web application of THE WEBSITE SHOWING DIFFERENTS  */}
 
                 <Box as="article" 
+                className="container"
                 width="100%">
                     <Box as ="section" width={["100%","90%","80%","80%"]} 
                     margin="auto" borderRadius="7px" marginTop="4rem" 

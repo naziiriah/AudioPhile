@@ -1,7 +1,6 @@
 import  { Box, Icon, Text } from "@chakra-ui/react"
 import { TiSocialFacebook, TiSocialInstagram, TiSocialTwitter } from 'react-icons/ti'
-
-
+import { Link } from "react-router-dom"
 
 const PageFooter = () => {
 return(
@@ -11,10 +10,10 @@ return(
                 <Box as="nav" w="100%"  margin="auto" h="10rem"  d="flex" flexDirection={["column", "column", "row" ,"row"]} paddingTop={["4rem", "4rem", "4rem" ,"0rem"]} justifyContent= "space-between" alignItems="center">
                         <Box as="h2" fontSize="18" color="#fff" fontWeight="700" letterSpacing="2px">audiophile</Box>
                         <Box as="ul" d="inline-flex" flexDirection={["column", "column", "row" ,"row"]} textDecoration="none" listStyleType="none" fontSize="">
-                             <Box as="li" fontSize="15" textTransform="uppercase"  textAlign="center" mx="15px" my="1rem" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}}>home</Box> 
-                             <Box as="li" fontSize="15" textTransform="uppercase" textAlign="center" mx="15px" my="1rem" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}} >headphones</Box> 
-                            <Box as="li" fontSize="15" textTransform="uppercase"  textAlign="center" mx="15px" my="1rem" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}}>speakers</Box>
-                            <Box as="li" fontSize="15" textTransform="uppercase"  textAlign="center" mx="15px" my="1rem" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}}>earphones</Box> 
+                            <Link to ="/"><Box as="li" className="footer-home-link" fontSize="15" textTransform="uppercase"  textAlign="center" mx="15px" my="1rem" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}}>home</Box> </Link>
+                             <Link to ="/headphones"><Box as="li" className="footer-headphone-link" fontSize="15" textTransform="uppercase" textAlign="center" mx="15px" my="1rem" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}} >headphones</Box> </Link>
+                            <Link to ="/speakers"><Box as="li" className="footer-speaker-link" fontSize="15" textTransform="uppercase"  textAlign="center" mx="15px" my="1rem" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}}>speakers</Box></Link>
+                            <Link to ="/earphones"><Box as="li" className="footer-earphone-link" fontSize="15" textTransform="uppercase"  textAlign="center" mx="15px" my="1rem" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}}>earphones</Box> </Link>
                     </Box>
                 </Box>
                 <Box width="100%" height={["25rem", "25rem", "25rem" ,"0rem"]} marginTop={["10rem", "10rem", "10rem" ,"0rem"]} display="flex" flexDirection={["column", "column", "row" ,"row"]} justifyContent="space-between">

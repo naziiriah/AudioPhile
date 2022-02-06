@@ -3,14 +3,17 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
+cypress/fixtures
+cypress/plugins
 
+.pnp.js
+src/firebase.tsx
 # testing
 /coverage
 
 # production
 /build
-
+/
 # misc
 .DS_Store
 .env.local
