@@ -69,7 +69,7 @@ export const GearsFile = createSlice({
         addToCart: (state, {payload}) => {
             // takes the id gotten from the product page and finds the item from the general state and appends it in the 
             // gives it a placeholder that can be pushed into the cart.
-            const newItem = state.value.find((state: { id: number; }) => state.id === payload.id)
+            const newItem = state.value.find((state: { id: number }) => state.id === payload.id)
 
             function checkContent(id:number ){
                 //  
@@ -77,26 +77,34 @@ export const GearsFile = createSlice({
                 
                 // check if the item exist in the cart to prevent duplicating and just appending the values instead
                 existingState? 
-                    existingState.value += payload.value
-                    : state.cart.push({
+                    (existingState.value += payload.value)
+                    : typeof(newItem?.price) === "number" && state.cart.push({
                                     "id": id,
-                                        newItem,
-                                    "value": payload.value
+                                    newItem,
+                                    "value": payload.value,
+                                    "total" : payload.value * newItem.price
                                     }) 
              }
             // to push the item into the cart if the cart is empty or call the function that checks if it
             // exists in the cart already and appends the value or just if it doesn't exists, it just pushes it directly into the cart array.
-            state.cart.length === 0 ? state.cart.push({
+            state.cart.length === 0 ? typeof(newItem?.price) === "number" && state.cart.push({
                                         "id": payload.id,
                                         newItem,
-                                        "value": payload.value
+                                        "value": payload.value,
+                                         "total" : payload.value * newItem.price
                                         }) 
                                     : checkContent(payload.id)    
         },
-        editCartAmount: (state, {payload}) => {
+        AddCartAmount: (state, {payload}) => {
             // to edit the value or number of items that's  to be placed in the cart
             const existingItem = state.cart.find((state: { id: number; }) => state.id === payload.id)
             existingItem.value = payload.value + 1
+            existingItem.total = existingItem.value * existingItem.newItem.price
+        },
+        removeCartAmount: (state, {payload}) => {
+            const existingItem = state.cart.find((state: { id: number; }) => state.id === payload.id)
+            existingItem.value = payload.value - 1
+            existingItem.total = existingItem.value * existingItem.newItem.price
         }, 
         EmptyCart: (state) => {
             // to empty the cart
@@ -112,6 +120,6 @@ export const GearsFile = createSlice({
     }
 })
 
-export const {addToCart, editCartAmount, EmptyCart, removeCartItem } = GearsFile.actions
+export const {addToCart, AddCartAmount, removeCartAmount, EmptyCart, removeCartItem } = GearsFile.actions
 
 export default GearsFile.reducer;

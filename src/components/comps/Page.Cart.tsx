@@ -21,7 +21,8 @@ import CartItems from "./Cart.Items"
 
  export interface CartProp {
   id:number | undefined
-  value : number 
+  value : number,
+  total:number,
   newItem :{
     id: number;
     slug: string;
@@ -87,7 +88,7 @@ const BasicUsage = () => {
     return (
       <>
         
-      <Icon as={FaCartPlus} onClick={onOpen} 
+      <Icon as={FaCartPlus} className="cart-icon" onClick={onOpen} 
       _hover={{cursor:"pointer", color:"#D87D4A"}}/>
         
         <Modal isOpen={isOpen} 
@@ -97,7 +98,7 @@ const BasicUsage = () => {
                     <ModalContent>
                         <ModalHeader display="flex" justifyContent="space-between">
                             <Text  as="h3"> cart </Text>
-                            <Text _hover={{cursor:"pointer", color:"#D87D4A"}}
+                            <Text _hover={{cursor:"pointer", color:"#D87D4A"}} className={"remove-tag"}
                             onClick={() => Dispatch(EmptyCart())}>Remove all</Text>
 
                         </ModalHeader>
@@ -107,11 +108,14 @@ const BasicUsage = () => {
               
                    {
                    Cart.map(
-                     (state: CartProp ) => <CartItems id={state.id} value = {state.value} newItem = {state.newItem}/>)}
+                     (state: CartProp ) => <CartItems id={state.id} value = {state.value} total={state.total} newItem = {state.newItem}/>)}
               </Box>
+              {/* <Box>{
+                  Cart.length> 0 && Cart.reduce((a:CartProp, b:CartProp) => a.total + b.total)
+                }</Box> */}
 
             <ModalFooter>
-              {Cart.length > 0 && <Button width="100%" onClick={() => Navigation("/products/checkout")}>Check Out</Button>}
+              {Cart.length > 0 && <Button width="100%" className="checkout-page" onClick={() => Navigation("/products/checkout")}>Check Out</Button>}
             </ModalFooter>
           </ModalContent>
         </Modal>

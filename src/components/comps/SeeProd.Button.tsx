@@ -9,9 +9,10 @@ interface Props {
 }
 
 const SeeButton = (props: Props) => {
+    const classname = `see-products`
     const Navigate = useNavigate()
     return(
-        <Button 
+        <Button className= {classname}
         textTransform={"uppercase"} my="2rem"
         borderColor={"#000"} borderWidth={"3px"} 
         borderStyle={"solid"} color={"#000"}

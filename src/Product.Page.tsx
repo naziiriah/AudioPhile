@@ -110,14 +110,14 @@ const ProductPage = () => {
                                         <Box my="1.4rem"  mx="2rem">{Value}</Box>
                                     </Box>
                         
-                                    <Box width="32%" height="4.1rem" bgColor="#f3f3f3" 
+                                    <Box className="add-to-value" width="32%" height="4.1rem" bgColor="#f3f3f3" 
                                     alignItems="center" onClick={() => increment()} >
                                         <Icon my="1.5rem"  mx="2rem" as={IoMdAdd}/>
                                     </Box>
 
                                 </Box>
 
-                                <Button bgColor = "#D87D4A" mt="3rem" borderRadius="0" 
+                                <Button className="to-cart-button" bgColor = "#D87D4A" mt="3rem" borderRadius="0" 
                                 textAlign = "center" textTransform="uppercase" letterSpacing="3px"
                                 width ="13rem" color = "#fff" _hover={{cursor:'pointer', opacity:'0.7'}}
                                 fontSize="16px" height="4rem" onClick={() =>  addValue()}                        

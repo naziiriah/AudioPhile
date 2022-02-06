@@ -1,5 +1,7 @@
 import { Box } from "@chakra-ui/react"
+
 import Header from "../innerPages/Header";
+import HomeButton from "./Home.Buttons";
 
 
 
@@ -32,9 +34,9 @@ return(
                         building quality made for the passionate music
                         enthusiast.
                     </Box>
-                    <Box  width="220px" margin={["auto", "auto", "0", "0"]}>
                     
-                    </Box>
+                        <HomeButton id={3} bgColor={"#D87D4A"} color={"#fff"}/>
+                    
                     
                 </Box>
 
