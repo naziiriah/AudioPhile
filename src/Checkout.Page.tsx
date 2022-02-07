@@ -1,4 +1,4 @@
-import { Box, Text, Icon,Input,RadioGroup,Radio, Image,Button } from "@chakra-ui/react"
+import { Box, Text, Icon,Input,RadioGroup,Radio, Image} from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import Header from "./components/innerPages/Header"
 import { GiPayMoney } from 'react-icons/gi'
@@ -6,6 +6,7 @@ import { useState } from "react"
 import { useSelector } from "react-redux"
 import { RootState } from "./app/store"
 import { CartProp } from "./components/comps/Page.Cart"
+import CheckoutButton from "./components/finalCheckOut.page"
 
 
 
@@ -13,6 +14,9 @@ const Checkout = () => {
 
     const Cart  = useSelector((state:RootState) => state.gears.cart)
     const [value, SetValue] = useState(true)
+    const Total = Cart.reduce((a:number, b:any) => 
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        a + b.total, 0) 
     const navigation = useNavigate()
     return(
         <>
@@ -122,8 +126,6 @@ const Checkout = () => {
                                         </Box>
                                 
                                 </Box>
-
-
                                 <Box display="flex" 
                                 flexDirection={["column", "column", "row", "row"]}  
                                 width="90%">
@@ -163,9 +165,7 @@ const Checkout = () => {
                                         <Input type={"text"} placeholder='USA'
                                         focusBorderColor='#D87D4A' 
                                         size='lg' my=".5rem" width="90%" display="flex"/>
-
                                 </Box>
-                             
                         </Box>
 {/*  Payment detail  */}
                         <Box  marginX="2rem" marginY="3rem">
@@ -174,7 +174,6 @@ const Checkout = () => {
                               textTransform="uppercase" letterSpacing="1px"  >payment details</Box>
                             <Box height="23rem" display ="flex" flexDirection={["column", "column", "row", "row"]} width="100%">
                                 <Box as="h3" height="5rem"  width={["100%","100%", "48%", "48%"]} textTransform="capitalize" fontFamily="23px" fontWeight="650"
-                                
                                 >payment method</Box>
                                 <Box height="10rem" width={["100%","100%", "48%", "48%"]}>
                                     <RadioGroup defaultValue='e-Money'>
@@ -184,7 +183,6 @@ const Checkout = () => {
                                         <Box width="100%" height="3rem" my="1rem" onClick={()=> SetValue(false)} cursor="pointer" borderWidth="1px"  borderColor="#D87D4A" colorScheme="#D87D4A" borderRadius="10px" _active={{borderColor:'orange'}}>
                                             <Radio onClick={()=> SetValue(false)}  size="lg"display="flex" justifyContent="flex-start" alignItems="center" my=".5rem" mx="1rem" colorScheme="black">cash on delivery</Radio>
                                         </Box>
-                                        
                                     </RadioGroup>
                                 </Box>
                             </Box>
@@ -201,8 +199,7 @@ const Checkout = () => {
                                             <Input placeholder='1234' focusBorderColor='#D87D4A' size='lg'width="100%" my=".5rem" />
                                         </Box>
                                 </Box>
-                                :<Box width="100%" height="7rem" marginTop="-9rem" display="flex" flexDirection={["column", "row", "row", "row"]} >
-
+                                :<Box width="100%" height="7rem" marginTop="-9rem" display="flex" flexDirection={["column", "row", "row", "row"]}>
                                 <Icon as ={GiPayMoney} fontSize="100" color='#D87D4A' />
                                     <Box as="p" lineHeight="27px" 
                                     fontSize="21px" letterSpacing="1px" width="100%" height="100%">
@@ -212,7 +209,6 @@ const Checkout = () => {
                                     </Box>
                                  </Box>
                             }
-
                         </Box>
                     </Box>
                     
@@ -240,10 +236,7 @@ const Checkout = () => {
                                 ) )
                             }
                             
-                            <Button className="final-modal" 
-                            color={"#fff"} textTransform={"uppercase"}
-                            fontWeight={"bold"} fontSize={"25px"}
-                            bgColor={"#D87D4A"} onClick={() => alert("fine page")}> check out</Button>
+                            <CheckoutButton total ={Total}/>
                             
                         </Box>
 
@@ -256,5 +249,6 @@ const Checkout = () => {
         </>
     )
 }
+
 
 export default Checkout

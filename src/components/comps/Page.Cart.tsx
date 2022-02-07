@@ -80,11 +80,15 @@ const BasicUsage = () => {
   
   const Dispatch = useDispatch()
   const Navigation  = useNavigate()
-
-    
   const { isOpen, onOpen, onClose } = useDisclosure()
-  
   const Cart  = useSelector((state: RootState) => state.gears.cart)
+
+  function checkoutPage(){
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    onClose
+    Navigation("/products/checkout")
+
+  }
     return (
       <>
         
@@ -92,30 +96,26 @@ const BasicUsage = () => {
       _hover={{cursor:"pointer", color:"#D87D4A"}}/>
         
         <Modal isOpen={isOpen} 
-        onClose={onClose} size="sm">
+        onClose={onClose} size={"md"}>
 
                 <ModalOverlay />
                     <ModalContent>
                         <ModalHeader display="flex" justifyContent="space-between">
                             <Text  as="h3"> cart </Text>
-                            <Text _hover={{cursor:"pointer", color:"#D87D4A"}} className={"remove-tag"}
-                            onClick={() => Dispatch(EmptyCart())}>Remove all</Text>
-
+                            {
+                              Cart.length > 0 && <Text _hover={{cursor:"pointer", color:"#D87D4A"}} className={"remove-tag"}
+                                                onClick={() => Dispatch(EmptyCart())}>Remove all</Text>
+                            }
                         </ModalHeader>
             
             
             <Box width="90%" margin="auto">
-              
                    {
                    Cart.map(
                      (state: CartProp ) => <CartItems id={state.id} value = {state.value} total={state.total} newItem = {state.newItem}/>)}
               </Box>
-              {/* <Box>{
-                  Cart.length> 0 && Cart.reduce((a:CartProp, b:CartProp) => a.total + b.total)
-                }</Box> */}
-
             <ModalFooter>
-              {Cart.length > 0 && <Button width="100%" className="checkout-page" onClick={() => Navigation("/products/checkout")}>Check Out</Button>}
+              {Cart.length > 0 && <Button width="100%" className="checkout-page" onClick={() =>  checkoutPage()}>Check Out</Button>}
             </ModalFooter>
           </ModalContent>
         </Modal>
