@@ -12,6 +12,7 @@ import InfoSection from "./components/comps/Page.Aside"
 import PageFooter from "./components/comps/Page.footer"
 import { useDispatch } from "react-redux";
 import { addToCart } from "./features/GearRoom"
+import { AddItemAlert } from "./components/Alert.page"
 
 const ProductPage = () => {
     
@@ -46,6 +47,7 @@ const ProductPage = () => {
                 'id': Product?.id,
                 "value" : Value
             }))
+            setTimeout(() => {AddItemAlert(Product?.slug) }, 1000)
    }
 
 

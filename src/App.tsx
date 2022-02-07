@@ -7,6 +7,7 @@ import Earphone from "./Earphone.Page";
 import Speaker from "./Speaker.Page";
 import ProductPage from "./Product.Page";
 import Checkout from "./Checkout.Page";
+import ScrollToTop from "./ScrollToTop";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <Box width={"100%"} maxWidth={"100rem"} margin={"auto"}>
+        <ScrollToTop/>
         <Routes>
           <Route path ="/" element={<Home/>}/>
           <Route path ="/headphones" element={<Headphone/>} />
@@ -21,8 +23,9 @@ function App() {
           <Route path = "/speakers" element={<Speaker/>}/>
           <Route path = "/:category/:slug" element={<ProductPage/>}/>
           <Route path = "/products/checkout" element={<Checkout/>}/>
-
+          
         </Routes>
+        
       </Box>
 
     </BrowserRouter>

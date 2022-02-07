@@ -40,18 +40,30 @@ function reduceFromValue(){
    
 
     return(
-        <Box width={"100%"}marginTop="1rem" 
-        height="2rem"  
+        <Box width={"100%"}marginY="1rem" 
+        height="5rem"  
         key={props.id} display={"flex"} justifyContent={"space-between"} >
-            <Image src={props.newItem.image.desktop} alt={props.newItem.slug} width={"2rem"} height={"2rem"}/>
-            <Text as="h3">{props.newItem.slug.slice(0, 4)}</Text>
-            <Box display={"flex"} width={"9rem"} >
-                <Box width={"3rem"} onClick={() => decrement()}><Icon as={FaMinus}  margin={"auto"}/></Box>
-                <Box width={"3rem"} className="cart-value" textAlign={"center"}>{amount}</Box>
-                <Box className="add-cart-value" width={"3rem"}  onClick={() => increment()}>< Icon as={IoMdAdd} margin={"auto"}/></Box>
-            </Box>
-            <Box>${props.total}</Box>
-            <Box _hover={{cursor:"pointer"}} onClick={() => Dispatch(removeCartItem({"id":props.id}))}><Icon as={MdDelete} className={classname}/></Box>
+            <Image src={props.newItem.image.desktop} mr=".4rem" alt={props.newItem.slug} width={"3rem"} height={"3rem"}/>
+            <Text as="h3" mt="-.1rem" fontWeight={"bold"} >{props.newItem.slug}</Text>
+            <Box display="flex"  height="3rem" width={["9rem"]}  
+            alignItems="center">
+                                    <Box width="32%" bgColor="#f3f3f3"  height="2rem" 
+                                    alignItems="center" justifyItems={"center"} onClick={() => decrement()}>
+                                        <Icon as ={FaMinus}  margin="auto"my=".5rem"  mx="0rem"/>
+                                    </Box>
+
+                                    <Box width="32%" bgColor="#f3f3f3" height="2rem" alignItems="center" >
+                                        <Box my=".4rem"  mx="2rem">{amount}</Box>
+                                    </Box>
+                        
+                                    <Box className="add-to-value" width="32%" height="2rem" bgColor="#f3f3f3" 
+                                    alignItems="center" onClick={() => increment()} >
+                                        <Icon my=".5rem"  mx="2rem" as={IoMdAdd}/>
+                                    </Box>
+
+                                </Box>
+            <Text as="h3" paddingRight="2rem">${props.total}</Text>
+            <Box _hover={{cursor:"pointer"}} onClick={() => Dispatch(removeCartItem({"id":props.id}))}><Icon as={MdDelete} className={classname} /></Box>
         </Box>   
     )
 }
