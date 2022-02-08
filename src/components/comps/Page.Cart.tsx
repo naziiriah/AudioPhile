@@ -87,7 +87,7 @@ const BasicUsage = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     onClose
     Navigation("/products/checkout")
-
+    localStorage.setItem("Cart", JSON.stringify(Cart))
   }
     return (
       <>

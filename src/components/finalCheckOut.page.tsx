@@ -32,11 +32,12 @@ const CheckoutButton = (prop : Prop) =>  {
 
     function ToHome(){
         Navigation('/')
+        localStorage.clear()
     }
   
     return (
       <>
-        <Button onClick={onOpen} width="100%" height="3rem" textTransform="uppercase" bgColor="#D87D4A" color="#fff">continue & pay</Button>
+        <Button onClick={onOpen} width="100%" height="3rem" textTransform="uppercase" bgColor="#D87D4A" color="#fff" className="final-modal">continue & pay</Button>
         <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent >
@@ -83,7 +84,7 @@ const CheckoutButton = (prop : Prop) =>  {
             </ModalBody>
   
             <ModalFooter>
-              <Button width="100%" height="3rem" textTransform="uppercase" bgColor="#D87D4A" color="#fff"
+              <Button className="to-home" width="100%" height="3rem" textTransform="uppercase" bgColor="#D87D4A" color="#fff"
               onClick={() =>ToHome()}>Back to home</Button>
             </ModalFooter>
           </ModalContent>

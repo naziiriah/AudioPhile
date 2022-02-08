@@ -13,7 +13,7 @@ const InfoSection = () => {
                 <Text as="h2" lineHeight=""
                 textTransform="uppercase" marginBottom="1.5rem" margin="auto"
                 fontSize="33px" fontWeight="700" letterSpacing="2px"
-                width={["90%","90%","90%","24rem"]} textAlign={["center", "center", "center", "start"]}
+                width={["90%","90%","90%","27rem"]} textAlign={["center", "center", "start", "start"]}
                 >bringing you the best <Text as="span" color="#D87D4A"> audio</Text> gear</Text>
                 <Text as="p" width={["90%","90%","90%","27rem"]} margin="auto" textAlign={["center", "center", "center", "start"]} lineHeight="28px" fontSize="20px" letterSpacing=".3px" >
                 Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories.

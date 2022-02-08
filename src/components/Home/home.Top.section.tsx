@@ -23,9 +23,9 @@ return(
                         new product
                     </Box>
                     <Box as="h1" 
-                    width="50%" textTransform="uppercase" 
+                    width={["90%","90%","80%", "50%"]} textTransform="uppercase" 
                     fontSize={["33px","33px","41px","59px"]}
-                    fontWeight="700" letterSpacing="3px" 
+                    fontWeight="700" letterSpacing="3px" textAlign={["center", "center", "start","start" ]}
                     >xx99 mark ii headphones
                     </Box>
                     <Box as="p" lineHeight="30px" fontSize="17px" 
