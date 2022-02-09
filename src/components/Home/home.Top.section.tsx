@@ -35,7 +35,7 @@ return(
                         enthusiast.
                     </Box>
                     
-                        <HomeButton id={3} bgColor={"#D87D4A"} color={"#fff"}/>
+                        <HomeButton location ={'headphones/xx99-mark-two-headphones'} id={4}/>
                     
                     
                 </Box>
