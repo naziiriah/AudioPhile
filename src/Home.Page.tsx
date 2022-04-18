@@ -5,6 +5,7 @@ import HomeHeader from "./components/Home/home.Top.section";
 import earbud from "../src/store/assets/home/desktop/image-earphones-yx1.jpg"
 import InfoSection from "./components/comps/Page.Aside";
 import PageFooter from "./components/comps/Page.footer";
+import HomeButton from "./components/Home/Home.Buttons";
 
 
 const Home = () => {
@@ -46,7 +47,7 @@ const Home = () => {
                      phenomenally built to deliver truly remarkable sound
                     </Box>
                     <Box width={["70%","50%","80%","80%"]} margin="auto" my="2rem">
-                    
+                    <HomeButton location="speaker/zx9-speaker" id={6}/>
                     </Box>
                 </Box>
             </Box>
@@ -61,7 +62,9 @@ const Home = () => {
                 color="#000" width={["70%", "70%", "100%", "100%"]}  
                 fontWeight="550" textTransform="uppercase" 
                 lineHeight="70px">zx7 speaker</Text>
-                    <Box paddingLeft={["10%","10%","20%","30%"]}></Box>
+                    <Box paddingLeft={["10%","10%","20%","30%"]}>
+                        <HomeButton location={"speakers/zx7-speaker"} id={5}/>
+                    </Box>
             </Box>
 
             
@@ -77,7 +80,9 @@ const Home = () => {
                 width="100%"  marginY="4rem" textAlign="center" 
                 fontWeight="550" textTransform="uppercase" 
                 lineHeight="70px">yx1 earphone</Box>
-                <Box margin="auto" width="50%"></Box>
+                <Box margin="auto" width="50%">
+                    <HomeButton location={"speakers/zx7-speaker"} id={1}/>
+                </Box>
             </Box>
             </Box>
             </Box>
