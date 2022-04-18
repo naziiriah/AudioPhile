@@ -3,6 +3,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { GiHamburgerMenu } from "react-icons/gi";
 import BasicUsage from "../comps/Page.Cart";
+import { IoMdClose } from "react-icons/io";
 
 
 
@@ -10,6 +11,7 @@ const Header = () => {
 
     const [smallScreen, setSize] = useState(false)
     return (
+        <>
         <Box as="nav">
             <Box className="Header"maxWidth="100rem" 
             width="90%" margin="auto" h="100" color="#fff">
@@ -42,6 +44,22 @@ const Header = () => {
             </Box>
             </Box>
         </Box>
+        { smallScreen &&   
+                <Box width="15rem" bgColor="black" marginTop="-5.5rem"  marginLeft="-1.7rem" height="60rem" pos="absolute" top="0rem"  >
+                    <Box  >
+                        <Icon as={IoMdClose} fontSize="33px" marginLeft="12rem" marginTop="7rem" _hover= {{  cursor:"pointer", color: "#D87D4A"}} onClick={() => setSize(false)}/>
+                    </Box>
+                    <Box  as="ul" width="10rem" marginLeft="4rem"  d={["flex"]} justifyContent="space-between" flexDirection="column" textDecoration="none" listStyleType="none" height="15rem">
+                   <Link to="/"> <Box as="li" fontSize="15" textTransform="uppercase"  textAlign="start" mx="15px" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}}  onClick={() => setSize(false)}>home</Box></Link>
+                    <Link to="/headphones"><Box as="li" fontSize="15" textTransform="uppercase" textAlign="start" mx="15px" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}} onClick={() => setSize(false)} >headphones</Box></Link>
+                    <Link to="/speakers"><Box as="li" fontSize="15" textTransform="uppercase"  textAlign="start" mx="15px" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}}  onClick={() => setSize(false)}>speakers</Box></Link>
+                    <Link to="/earphones"><Box as="li" fontSize="15" textTransform="uppercase"  textAlign="start" mx="15px" _active={{ color: "#D87D4A" }} _hover= {{  cursor:"pointer", color: "#D87D4A"}} onClick={() => setSize(false)} >earphones</Box></Link>
+                </Box>
+                  
+                </Box>
+                
+                 }
+        </>
     )
 }
 
