@@ -15,19 +15,14 @@ import { addToCart } from "./features/GearRoom"
 import { AddItemAlert } from "./components/Alert.page"
 
 const ProductPage = () => {
-    
-   const Location = useLocation()
-   const AudioMaterials  = useSelector((state: RootState) => state.gears.value)
-//    const Cart  = useSelector((state: RootState) => state.gears.cart)
-    const navigation = useNavigate()
-    
-   const Product = typeof(Location.state) === "number" ? 
+    const Location = useLocation(),
+    AudioMaterials  = useSelector((state: RootState) => state.gears.value),
+    navigation = useNavigate(),
+    Dispatch = useDispatch(),
+    [Value, setValue] = useState(0),
+    Product = typeof(Location.state) === "number" ? 
         AudioMaterials.find((products: { id: number }) => products.id === Location.state) :
-        AudioMaterials.find((products: { slug: string }) => products.slug === Location.state)
-
-    const Dispatch = useDispatch()
-
-   const [Value, setValue] = useState(0)
+        AudioMaterials.find((products: { slug: string }) => products.slug === Location.state);
    
    function increment(){
        //    for increasing the value on the product page

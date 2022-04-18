@@ -87,35 +87,41 @@ export const GearsFile = createSlice({
              }
             // to push the item into the cart if the cart is empty or call the function that checks if it
             // exists in the cart already and appends the value or just if it doesn't exists, it just pushes it directly into the cart array.
-            state.cart.length === 0 ? typeof(newItem?.price) === "number" && state.cart.push({
+            state.cart.length === 0 ? typeof(newItem?.price) === "number" && (state.cart.push({
                                         "id": payload.id,
                                         newItem,
                                         "value": payload.value,
                                          "total" : payload.value * newItem.price
-                                        }) 
-                                    : checkContent(payload.id)    
+                                        }))
+                                    : checkContent(payload.id)
+
+        localStorage.setItem('Cart', JSON.stringify(state.cart))
+            
         },
         AddCartAmount: (state, {payload}) => {
             // to edit the value or number of items that's  to be placed in the cart
             const existingItem = state.cart.find((state: { id: number; }) => state.id === payload.id)
             existingItem.value = payload.value + 1
             existingItem.total = existingItem.value * existingItem.newItem.price
+            localStorage.setItem('Cart', JSON.stringify(state.cart))
         },
         removeCartAmount: (state, {payload}) => {
             const existingItem = state.cart.find((state: { id: number; }) => state.id === payload.id)
             existingItem.value = payload.value - 1
             existingItem.total = existingItem.value * existingItem.newItem.price
+            localStorage.setItem('Cart', JSON.stringify(state.cart))
         }, 
         EmptyCart: (state) => {
             // to empty the cart
                     state.cart = []
+                    localStorage.clear()
         },
         removeCartItem : ( state, {payload} )=> {
         // to remove a specific item from the cart
             const id  = payload.id
              const newCart = state.cart.filter((state: { id: number; }) => state.id !== id)
              state.cart = newCart
-            
+             localStorage.setItem('Cart', newCart)   
         }
     }
 })
