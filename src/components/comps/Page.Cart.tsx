@@ -12,9 +12,8 @@ import {
   Button
 } from "@chakra-ui/react"
 import { FaCartPlus } from 'react-icons/fa'
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch  } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { RootState } from "../../app/store"
 import { EmptyCart } from "../../features/GearRoom"
 import CartItems from "./Cart.Items"
 
@@ -78,16 +77,17 @@ import CartItems from "./Cart.Items"
 
 const BasicUsage = () => {
   
-  const Dispatch = useDispatch()
-  const Navigation  = useNavigate()
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const Cart  = useSelector((state: RootState) => state.gears.cart)
+  const Dispatch = useDispatch(),
+  Navigation  = useNavigate(),
+  { isOpen, onOpen, onClose } = useDisclosure(),
+  cart  = localStorage.getItem('Cart'),
+  Cart = cart ? typeof(cart) === "string" && JSON.parse(cart) : "";
+
 
   function checkoutPage(){
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     onClose
     Navigation("/products/checkout")
-    localStorage.setItem("Cart", JSON.stringify(Cart))
   }
     return (
       <>
@@ -111,11 +111,13 @@ const BasicUsage = () => {
             
             <Box width="90%" margin="auto">
                    {
-                   Cart.map(
-                     (state: CartProp ) => <CartItems id={state.id} value = {state.value} total={state.total} newItem = {state.newItem}/>)}
+                     !Cart ?
+                      "Cart is Empty" :
+                      Cart.map((state: CartProp ) => 
+                        <CartItems id={state.id} value = {state.value} total={state.total} newItem = {state.newItem}/>)}
               </Box>
             <ModalFooter>
-              {Cart.length > 0 && <Button width="100%" className="checkout-page" onClick={() =>  checkoutPage()}>Check Out</Button>}
+              {Cart && <Button width="100%" className="checkout-page" onClick={() =>  checkoutPage()}>Check Out</Button>}
             </ModalFooter>
           </ModalContent>
         </Modal>

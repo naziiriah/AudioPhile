@@ -11,28 +11,27 @@ import {
     Text,
     Image
   } from "@chakra-ui/react"
-import { IoMdCheckmark } from "react-icons/io"
-import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
-import { RootState } from "../app/store"
-
+import { IoMdCheckmark } from "react-icons/io";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { RootState } from "../app/store";
+import { useDispatch } from "react-redux";
+import { EmptyCart } from "../features/GearRoom";
 interface Prop {
     total : number
 }
 
-
-
-
 const CheckoutButton = (prop : Prop) =>  {
 
-    const Cart = useSelector((state:RootState) => state.gears.cart )
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const Navigation  = useNavigate()
-    const FirstItem = Cart[0]
+    const Cart = useSelector((state:RootState) => state.gears.cart ),
+    { isOpen, onOpen, onClose } = useDisclosure(),
+    Navigation  = useNavigate(),
+    FirstItem = Cart[0],
+    Dispatch = useDispatch();
 
     function ToHome(){
         Navigation('/')
-        localStorage.clear()
+        Dispatch(EmptyCart())
     }
   
     return (
