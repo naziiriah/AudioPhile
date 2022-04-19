@@ -5,13 +5,14 @@
   font-family: "Roboto";
 }
 .header{
-  background-image: url("../src/store/assets/home/desktop/image-hero.jpg")
-  ;
+  background-image: url("../src/store/assets/home/desktop/image-hero.jpg");
+  background-size: 100% 100%;
+  
 }
 .speak-bg{
   background-image: url("../src/store/assets/home/desktop/image-speaker-zx7.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% 100%;
 }
 @media screen and (max-width:1000px) {
   .header{
