@@ -16,10 +16,10 @@ const Navigate = useNavigate()
 
     return(
         <Button 
-        textTransform={"uppercase"} my="2rem"
+        textTransform={"uppercase"} my="3rem"
         borderColor={"#000"} borderWidth={"3px"} 
         borderStyle={"solid"} color={"brown"}
-        bgColor={"white"} height={"4rem"}
+        bgColor={"white"} height={"4rem"} marginLeft={["0rem","10rem", '23rem', '0rem']}
         onClick ={() => Navigate(props.location, {state:props.id} )}>
             see product
         </Button>
