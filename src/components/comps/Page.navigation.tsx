@@ -1,4 +1,4 @@
-import { Box, Image, Icon, Link } from "@chakra-ui/react"
+import { Box, Image, Icon } from "@chakra-ui/react"
 import miniHeadphones from "../../store/assets/shared/desktop/image-category-thumbnail-headphones.png";
 import miniSpeakers from "../../store/assets/shared/desktop/image-category-thumbnail-speakers.png";
 import miniEarphone from "../../store/assets/shared/desktop/image-category-thumbnail-earphones.png";

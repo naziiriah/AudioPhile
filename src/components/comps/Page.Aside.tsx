@@ -9,7 +9,7 @@ const InfoSection = () => {
         height={["70rem", "70rem","70rem", "40rem"]} display="flex" 
         flexDirection={["column", "column", "column", "row"]}  
         justifyContent="space-between" margin="auto" marginTop="5rem">
-            <Box marginTop="6rem">
+            <Box marginTop={['12rem', '15rem', '15rem', "6rem"]}>
                 <Text as="h2" lineHeight=""
                 textTransform="uppercase" marginBottom="1.5rem" margin="auto"
                 fontSize="33px" fontWeight="700" letterSpacing="2px"
