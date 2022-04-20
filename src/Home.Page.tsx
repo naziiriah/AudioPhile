@@ -46,7 +46,7 @@ const Home = () => {
                     Upgrade to premium speakers that are
                      phenomenally built to deliver truly remarkable sound
                     </Box>
-                    <Box width={["70%","50%","80%","80%"]} margin="auto"  ml={["0rem", "0rem", "-23rem","2rem"]}>
+                    <Box width={["70%","50%","80%","80%"]} margin="auto"  ml={["1rem", "-2rem", "-23rem","2rem"]}>
                     <HomeButton location="speaker/zx9-speaker" id={6}/>
                     </Box>
                 </Box>
@@ -62,7 +62,7 @@ const Home = () => {
                 color="#000" width={["70%", "70%", "100%", "100%"]}  
                 fontWeight="550" textTransform="uppercase" 
                 lineHeight="70px">zx7 speaker</Text>
-                    <Box paddingLeft={["10%","10%","20%","30%"]} ml={["0rem","-9rem","-24rem",'-10rem']}>
+                    <Box paddingLeft={["10%","10%","20%","30%"]} ml={["0rem","-10rem","-24rem",'-10rem']}>
                         <HomeButton location={"speakers/zx7-speaker"} id={5}/>
                     </Box>
             </Box>
@@ -80,7 +80,7 @@ const Home = () => {
                 width="100%"  marginY="4rem" textAlign="center" 
                 fontWeight="550" textTransform="uppercase" 
                 lineHeight="70px">yx1 earphone</Box>
-                <Box margin="auto" width="100%" ml={['0rem', '1rem', '-7rem', "15rem"]}>
+                <Box margin="auto" width="100%" ml={['0rem', '-1rem', '-7rem', "15rem"]}>
                     <HomeButton location={"speakers/zx7-speaker"} id={1}/>
                 </Box>
             </Box>

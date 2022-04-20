@@ -30,15 +30,14 @@ return(
                     </Box>
                     <Box as="p" lineHeight="30px" fontSize={["17px", "17px", "27px", "27px" ]}
 
-                    color="grey.400" w={["100%", "80%", "90%", "40%"]} margin={["0","0", "auto","0"]} textAlign={["center","center", "center", "start"]} my="2rem">
+                    color="grey.400" w={["100%", "70%", "90%", "40%"]} margin={["0","auto", "auto","0"]} textAlign={["center","center", "center", "start"]} my="2rem">
                         Experience natural, lifelike audio and exceptional 
                         building quality made for the passionate music
                         enthusiast.
                     </Box>
-                    
-                        <HomeButton location ={'headphones/xx99-mark-two-headphones'} id={4}/>
-                    
-                    
+                    <Box width={"100%"} marginLeft={['-3rem', "-3rem","0rem", "0rem"]}>
+                    <HomeButton location ={'headphones/xx99-mark-two-headphones'} id={4}/>
+                    </Box>
                 </Box>
 
     </Box>
