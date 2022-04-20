@@ -3,8 +3,7 @@ import { CartProp } from "./Page.Cart";
 import { useDispatch } from "react-redux";
 import {  removeCartItem  } from "../../features/GearRoom";
 import { MdDelete } from "react-icons/md";
-import { DeleteItem } from "../Alert.page";
-import { useState } from "react";
+
 
 const CartItems = (props:CartProp) => {
     const Dispatch = useDispatch(),

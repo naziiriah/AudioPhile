@@ -17,19 +17,16 @@ import {
         )
   }
 
-//   export const EmptyCartItem = () => {
+  export const EmptyCartItem = (props: { display: string ;} ) => {
 
-//         return(
-//             <Alert status='error'>
-//                 <AlertIcon />
-//                 {/* <AlertTitle mr={2}>{</AlertTitle> */}
-//                 <AlertDescription>Your Chakra experience may be degraded.</AlertDescription>
-//                 <CloseButton position='absolute' right='8px' top='8px' />
-//         </Alert>
-//         )
-
-
-//   }
+        return(
+          <Alert status='success' variant={'top-accent'} display={props.display}>
+          <AlertIcon />
+          <AlertTitle mr={2}>Cart has been Emptied</AlertTitle>
+          
+        </Alert>  
+        )
+}
 
 
   export const AddItemAlert = (props: { display: string ; item: string | undefined}) => {
