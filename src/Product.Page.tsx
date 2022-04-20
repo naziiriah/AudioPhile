@@ -44,8 +44,9 @@ const ProductPage = () => {
                 "value" : Value
             }))
         setDisplay("")
+        setValue(0)
    }
-   Display === "" && setTimeout(() => setDisplay('none'), 2000) 
+   Display === "" && setTimeout(() => setDisplay('none'), 3000) 
 
     return (
         <Box key={Product?.id}>
