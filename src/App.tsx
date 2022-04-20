@@ -23,11 +23,8 @@ function App() {
           <Route path = "/speakers" element={<Speaker/>}/>
           <Route path = "/:category/:slug" element={<ProductPage/>}/>
           <Route path = "/products/checkout" element={<Checkout/>}/>
-          
         </Routes>
-        
       </Box>
-
     </BrowserRouter>
     
     );

@@ -18,6 +18,7 @@ const ProductPage = () => {
     const Location = useLocation(),
     AudioMaterials  = useSelector((state: RootState) => state.gears.value),
     navigation = useNavigate(),
+    [Display, setDisplay] = useState('none'),
     Dispatch = useDispatch(),
     [Value, setValue] = useState(0),
     Product = typeof(Location.state) === "number" ? 
@@ -42,15 +43,16 @@ const ProductPage = () => {
                 'id': Product?.id,
                 "value" : Value
             }))
-            setTimeout(() => {AddItemAlert(Product?.slug) }, 1000)
+        setDisplay("")
    }
-
+   Display === "" && setTimeout(() => setDisplay('none'), 2000) 
 
     return (
         <Box key={Product?.id}>
             <Box as ="header"  bgColor={"#000"} 
             width="100%" height="4.8rem">
                 <Header/>
+                <AddItemAlert display={Display} item={Product?.slug}/>
             </Box>
             <Box as="main" width="100%" >
 
@@ -139,15 +141,15 @@ const ProductPage = () => {
                     </Box>
 
                     <Box width={["100%","100%","100%","47%"]} display={["flex"]} 
-                    flexDirection={["row", "row", "row", "column"]} >
+                    flexDirection={["column", "column", "row", "column"]} >
 
                         <Box as="h2" fontSize={["23px", "33px", "33px", "33px"]} 
-                        height="" width={["50%", "50%", "50%", "100%"]}  
+                        height="" width={["100%", "100%", "50%", "100%"]}  
                         fontWeight="600" textTransform="uppercase">in the box
                         </Box>
 
                         <Box marginTop={["0rem", "0rem","0rem", "1.4rem"]} 
-                        width={["50%", "50%", "50%", "80%"]} > 
+                        width={["100%", "100%", "50%", "80%"]} > 
 
                             {Product?.includes.map((includes: { quantity: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined; item: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined })=> (
                                 <Box display="flex" marginTop=".8rem" >

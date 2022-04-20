@@ -2,21 +2,20 @@ import {
     Alert,
     AlertIcon,
     AlertTitle,
-    AlertDescription,
+  
     CloseButton
   } from '@chakra-ui/react'
 
-//   export const DeleteItem = (props:string | undefined) => {
+  export const DeleteItem = (props: { display: string ; item:string }) => {
 
-//    return( 
-//          <Alert status='error'>
-//                 <AlertIcon />
-//                 <AlertTitle mr={2}>{props}</AlertTitle>
-//                 <AlertDescription>Your Chakra experience may be degraded.</AlertDescription>
-//                 <CloseButton position='absolute' right='8px' top='8px' />
-//         </Alert>
-//         )
-//   }
+   return( 
+         <Alert status='warning' variant={'top-accent'} display={props.display}>
+                <AlertIcon />
+                <AlertTitle mr={2}>Item '{props.item}' has been removed from Cart</AlertTitle>
+                <CloseButton position='absolute' right='8px' top='8px' />
+        </Alert>
+        )
+  }
 
 //   export const EmptyCartItem = () => {
 
@@ -29,20 +28,16 @@ import {
 //         </Alert>
 //         )
 
+
 //   }
 
-interface Prop {
-    name:string |undefined
-}
-  export const AddItemAlert = (props:string | undefined) => {
 
-    // alert(props)
-    //   return(  
-    //     <Alert status='success'>
-    //         <AlertIcon />
-    //         The item `{props.name}` has been added to cart
-    //     </Alert>
+  export const AddItemAlert = (props: { display: string ; item: string | undefined}) => {
+    return(
+      <Alert status='success' variant={'top-accent'} display={props.display}>
+        <AlertIcon />
+        <AlertTitle mr={2}>Item '{props.item}' has been added to Cart</AlertTitle>
         
-    // )
-
+      </Alert>   
+    )
   }
