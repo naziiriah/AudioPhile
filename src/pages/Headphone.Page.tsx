@@ -1,12 +1,12 @@
 import { Box, Text } from "@chakra-ui/react";
-import Header from "./components/innerPages/Header";
-import PageFooter from "../src/components/comps/Page.footer";
-import InfoSection from "../src/components/comps/Page.Aside";
-import SectionArea from "./components/innerPages/innerPage.Section";
-import PageNavigation from "./components/comps/Page.navigation";
+import Header from "../components/innerPages/Header";
+import PageFooter from "../components/comps/Page.footer";
+import InfoSection from "../components/comps/Page.Aside";
+import SectionArea from "../components/innerPages/innerPage.Section";
+import PageNavigation from "../components/comps/Page.navigation";
 
 const Headphone = () => {
-
+ 
     return(
         <>
         <Box as ="header" bgColor={"#000"} width="100%" height="18rem">

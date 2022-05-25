@@ -1,15 +1,31 @@
 import { Box, Icon } from "@chakra-ui/react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 import { GiHamburgerMenu } from "react-icons/gi";
 import BasicUsage from "../comps/Page.Cart";
 import { IoMdClose } from "react-icons/io";
-
-
+import Login from "../authenticate/Login";
+import Signup from "../authenticate/Signup";
+import { FiLogOut } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, reset } from "../../features/auth/authSlice";
+import { RootState } from "../../app/store";
 
 const Header = () => {
 
-    const [smallScreen, setSize] = useState(false)
+    const [smallScreen, setSize] = useState(false),
+    dispatch = useDispatch(),
+    navigate = useNavigate(),
+    {user} = useSelector((state:RootState) => state.auth),
+    onLogout = () => {
+        dispatch(logout())
+        dispatch(reset())
+        navigate('/')
+    };
+    
+
+    
+
     return (
         <>
         <Box as="nav">
@@ -26,7 +42,7 @@ const Header = () => {
                     <Box _hover={{cursor:"pointer", color:"#D87D4A"}}
                     display={["block", "block", "block", "none"]}>
                         <Icon as={ GiHamburgerMenu } 
-                        onClick={()=>{setSize(!smallScreen)}}></Icon>
+                        onClick={()=>{setSize(!smallScreen); }}></Icon>
                     </Box>
 
                     <Box  as="ul" order={["1","1","2","2"]} d={["none", "none","none","inline-flex"]} textDecoration="none" listStyleType="none" fontSize="">
@@ -37,7 +53,28 @@ const Header = () => {
                     </Box>
                     
                     <Box order={["3"]}>
-                        <BasicUsage/>
+                      {user ? 
+                      <Box display={"flex"} justifyContent={'space-between'} width={'8rem'}>
+                          <BasicUsage/>
+                          <Box >
+                                    <Icon as={FiLogOut} className="cart-icon" onClick={onLogout }
+                                    _hover={{cursor:"pointer", color:"#D87D4A"}}/> 
+                                    <Box as="h6" fontSize={"14px"}>Log out</Box>
+                          </Box>
+                            
+                          </Box>
+                     :
+                        <Box display={"flex"} justifyContent={'space-between'} width={'8rem'}>
+                            <Box>
+                                <Login/>
+                                <Box as="h6" fontSize={"14px"}>Log In</Box>
+                            </Box>
+                            <Box>
+                                <Signup/>
+                                <Box as="h6" fontSize={"14px"}>Sign up</Box>
+                            </Box>                            
+                        </Box> 
+                        }
                     </Box>
                 </Box> 
             <Box>

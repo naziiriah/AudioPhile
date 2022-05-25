@@ -13,7 +13,6 @@ return(
         backgroundPosition="cover"
         backgroundSize="100% 100%"
         width="100%"height="45rem">
-
         <Header/>
 
         <Box h="450"  color="white"  width={["100%","100%","100%","90%"]} margin={"auto"}

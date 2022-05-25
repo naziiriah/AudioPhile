@@ -66,7 +66,7 @@ export const GearsFile = createSlice({
     name: "gears",
     initialState,
     reducers: {
-        addToCart: (state, {payload}) => {
+        addToCart: (state:any, {payload}) => {
             // takes the id gotten from the product page and finds the item from the general state and appends it in the 
             // gives it a placeholder that can be pushed into the cart.
             const newItem = state.value.find((state: { id: number }) => state.id === payload.id)

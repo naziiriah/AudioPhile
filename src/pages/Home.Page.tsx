@@ -1,11 +1,11 @@
 import { Box, Image, Text } from "@chakra-ui/react"
-import PageNavigation from "./components/comps/Page.navigation";
-import imageSpeaker from "../src/store/assets/home/desktop/image-speaker-zx9.png"
-import HomeHeader from "./components/Home/home.Top.section";
-import earbud from "../src/store/assets/home/desktop/image-earphones-yx1.jpg"
-import InfoSection from "./components/comps/Page.Aside";
-import PageFooter from "./components/comps/Page.footer";
-import HomeButton from "./components/Home/Home.Buttons";
+import PageNavigation from "../components/comps/Page.navigation";
+import imageSpeaker from "../store/assets/home/desktop/image-speaker-zx9.png"
+import HomeHeader from "../components/Home/home.Top.section";
+import earbud from "../store/assets/home/desktop/image-earphones-yx1.jpg"
+import InfoSection from "../components/comps/Page.Aside";
+import PageFooter from "../components/comps/Page.footer";
+import HomeButton from "../components/Home/Home.Buttons";
 
 
 const Home = () => {

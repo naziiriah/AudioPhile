@@ -1,18 +1,19 @@
 import { Box } from "@chakra-ui/react"
 
-import Home from "./Home.Page";
+import Home from "./pages/Home.Page";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import Headphone from "./Headphone.Page";
-import Earphone from "./Earphone.Page";
-import Speaker from "./Speaker.Page";
-import ProductPage from "./Product.Page";
-import Checkout from "./Checkout.Page";
+import Headphone from "../src/pages/Headphone.Page";
+import Earphone from "./pages/Earphone.Page";
+import Speaker from "../src/pages/Speaker.Page";
+import ProductPage from "./pages/Product.Page";
+import Checkout from "./pages/Checkout.Page";
 import ScrollToTop from "./ScrollToTop";
-
+import { ToastContainer } from "react-toastify"
 
 function App() {
 
   return (
+  <>
     <BrowserRouter>
       <Box width={"100%"} maxWidth={"100rem"} margin={"auto"}>
         <ScrollToTop/>
@@ -26,7 +27,8 @@ function App() {
         </Routes>
       </Box>
     </BrowserRouter>
-    
+    <ToastContainer/>
+  </>
     );
 }
 

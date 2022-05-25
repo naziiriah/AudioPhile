@@ -15,64 +15,9 @@ import { FaCartPlus } from 'react-icons/fa'
 import { useDispatch  } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { EmptyCart } from "../../features/GearRoom"
+import { CartProp } from "../../utils/Types"
 import CartItems from "./Cart.Items"
 
-
- export interface CartProp {
-  id:number | undefined
-  value : number,
-  total:number,
-  newItem :{
-    id: number;
-    slug: string;
-    name: string;
-    image: {
-        mobile: string;
-        tablet: string;
-        desktop: string;
-    };
-    category: string;
-    categoryImage: {
-        mobile: string;
-        tablet: string;
-        desktop: string;
-    };
-    new: boolean;
-    price:number;
-    description:string;
-    features:string;
-    includes:{
-        quantity:number;
-        item:string;
-    }[];
-    gallery:{
-        first:{
-            mobile:string;
-            tablet:string;
-            desktop:string;
-        };
-        second:{
-            mobile:string;
-            tablet:string;
-            desktop:string;
-        },
-        third:{
-            mobile:string;
-            tablet:string;
-            desktop:string;
-        }
-    };
-    others:{
-        slug:string;
-        name:string;
-        image:{
-            mobile:string;
-            tablet:string;
-            desktop:string;
-        }
-    }[]
-    }
-}
 
 
 const BasicUsage = () => {
@@ -97,7 +42,6 @@ const BasicUsage = () => {
         
         <Modal isOpen={isOpen} 
         onClose={onClose} size={"md"}>
-
                 <ModalOverlay />
                     <ModalContent>
                         <ModalHeader display="flex" justifyContent="space-between">

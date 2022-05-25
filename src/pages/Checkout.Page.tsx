@@ -1,12 +1,12 @@
 import { Box, Text, Icon,Input,RadioGroup,Radio, Image} from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
-import Header from "./components/innerPages/Header"
+import Header from "../components/innerPages/Header"
 import { GiPayMoney } from 'react-icons/gi'
 import { useState } from "react"
 import { useSelector } from "react-redux"
-import { RootState } from "./app/store"
-import { CartProp } from "./components/comps/Page.Cart"
-import CheckoutButton from "./components/finalCheckOut.page"
+import { RootState } from "../app/store"
+import { CartProp } from "../utils/Types"
+import CheckoutButton from "../components/finalCheckOut.page"
 
 
 

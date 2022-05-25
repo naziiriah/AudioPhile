@@ -1,18 +1,18 @@
 import { Box,Image, Icon, Button, Text } from "@chakra-ui/react"
 import {  useLocation, useNavigate } from "react-router-dom"
-import { RootState } from "./app/store"
+import { RootState } from "../app/store"
 import { useSelector } from "react-redux"
-import Header from "./components/innerPages/Header"
+import Header from "../components/innerPages/Header"
 import { IoMdAdd} from "react-icons/io"
 import { FaMinus } from "react-icons/fa";
 import { ReactChild, ReactFragment, ReactPortal, useState } from "react"
-import MiniComponets from "./components/comps/MiniComponents.Products"
-import PageNavigation from "./components/comps/Page.navigation"
-import InfoSection from "./components/comps/Page.Aside"
-import PageFooter from "./components/comps/Page.footer"
+import MiniComponets from "../components/comps/MiniComponents.Products"
+import PageNavigation from "../components/comps/Page.navigation"
+import InfoSection from "../components/comps/Page.Aside"
+import PageFooter from "../components/comps/Page.footer"
 import { useDispatch } from "react-redux";
-import { addToCart } from "./features/GearRoom"
-import { AddItemAlert } from "./components/Alert.page"
+import { addToCart } from "../features/GearRoom"
+import { AddItemAlert } from "../components/Alert.page"
 
 const ProductPage = () => {
     const Location = useLocation(),

@@ -1,5 +1,5 @@
 import { Box, Image, Text, Icon } from "@chakra-ui/react";
-import { CartProp } from "./Page.Cart";
+import { CartProp } from "../../utils/Types";
 import { useDispatch } from "react-redux";
 import {  removeCartItem  } from "../../features/GearRoom";
 import { MdDelete } from "react-icons/md";
