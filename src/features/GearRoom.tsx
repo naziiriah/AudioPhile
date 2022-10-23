@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import DB from "../store/data"
 
 interface state {
@@ -53,12 +53,26 @@ interface state {
             }
         }[]
         }[];
+    isError:boolean;
+    isSuccess:boolean;
+    isLoading:boolean;
+    message: string;
 }
+
+const AddCart = createAsyncThunk(
+    "gears/add",
+   async() =>  {
+
+   })
     
 
 const initialState:state = {
     value :DB, 
-    cart : []
+    cart : [],
+    isError:false,
+    isSuccess: false,
+    isLoading:false,
+    message: "",
 }
 
 
@@ -98,31 +112,38 @@ export const GearsFile = createSlice({
         localStorage.setItem('Cart', JSON.stringify(state.cart))
             
         },
-        AddCartAmount: (state, {payload}) => {
+        AddCartAmount: (state: { cart: any[]; }, {payload}: any) => {
             // to edit the value or number of items that's  to be placed in the cart
             const existingItem = state.cart.find((state: { id: number; }) => state.id === payload.id)
             existingItem.value = payload.value + 1
             existingItem.total = existingItem.value * existingItem.newItem.price
             localStorage.setItem('Cart', JSON.stringify(state.cart))
         },
-        removeCartAmount: (state, {payload}) => {
+        removeCartAmount: (state: { cart: any[]; }, {payload}: any) => {
             const existingItem = state.cart.find((state: { id: number; }) => state.id === payload.id)
             existingItem.value = payload.value - 1
             existingItem.total = existingItem.value * existingItem.newItem.price
             localStorage.setItem('Cart', JSON.stringify(state.cart))
         }, 
-        EmptyCart: (state) => {
+        EmptyCart: (state: { cart: never[]; }) => {
             // to empty the cart
                     state.cart = []
                     localStorage.clear()
         },
-        removeCartItem : ( state, {payload} )=> {
+        removeCartItem : ( state: { cart: any[]; }, {payload}: any )=> {
         // to remove a specific item from the cart
             const id  = payload.id
              const newCart = state.cart.filter((state: { id: number; }) => state.id !== id)
              state.cart = newCart
-             localStorage.setItem('Cart', newCart)   
+             localStorage.setItem('Cart', JSON.stringify(newCart))   
         }
+    },
+    extraReducers: (builder) => {
+        builder.
+        addCase(AddCart.fulfilled, (state) => {
+
+        })
+
     }
 })
 
